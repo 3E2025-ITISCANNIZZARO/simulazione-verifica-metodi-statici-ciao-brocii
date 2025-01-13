@@ -5,7 +5,7 @@ package org.example;
  *  @author prof. Zanzottera Fabio
  *  @version 1.0-3di, 19/11/24
  */
-public class Main {
+public class Main { 
     /**
      * default constructor no usages
      */

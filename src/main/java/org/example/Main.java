@@ -11,10 +11,10 @@ public class Main {
      */
     public Main() {};
 
-    static final String cognome=""; // assegnare alla variabile il proprio cognome
-    static final String nome=""; // assegnare alla variabile il proprio nome
-    static final String currentDate="19/11/24";
-    static final String classe="3DI";
+    static final String cognome="Biroli"; // assegnare alla variabile il proprio cognome
+    static final String nome="Lucia"; // assegnare alla variabile il proprio nome
+    static final String currentDate="13/01/25";
+    static final String classe="4EI";
 
     /**
      * Programma principale modificare solo dove indicato nei commenti
@@ -62,7 +62,7 @@ public class Main {
      */
     public static int somma(int a,int b) {
         int risposta=0;
-        // TODO: SCRIVI QUI IL CODICE
+        risposta=a+b;
         return risposta;
     }
 
@@ -75,8 +75,14 @@ public class Main {
      */
     public static String isMaggiorenne(int age) {
         String risposta="maggiorenne,minorenne";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String[] magg=risposta.split(",");
+         if(age>=18){
+            return magg[0];
+         }
+         else{
+            return magg[1];
+         }
+        
     }
 
     /**
@@ -87,7 +93,11 @@ public class Main {
      */
     public static boolean isVocale(char carattere) {
         boolean risposta=false;
-        // TODO: SCRIVI QUI IL CODICE
+        switch (carattere)) {
+            case 'a','A','e','E','i','I','o','O','u','U':
+                risposta=True;
+                break;
+        }
         return risposta;
     }
 
@@ -101,8 +111,21 @@ public class Main {
      */
     public static String tipoTriangolo(float lato1, float lato2, float lato3) {
         String risposta="equilatero,isoscele,scaleno";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String[] r=risposta.split(",");
+        float diferenza=0.00001;
+        if(lato1-lato2<differenza&&lato2-lato3<differenza){
+            System.out.println("il triangolo è equilatero");
+            return r[0];
+        }
+        else if(lato1-lato2<differenza||lato2-lato3<differenza||lato3-lato1<differenza){
+            System.out.println("il triangolo è isoscele");
+            return r[1];
+        }
+        else{
+            System.out.println("il triangolo è scaleno");
+            return r[2];
+        }
+        
     }
 
     /**
@@ -114,8 +137,9 @@ public class Main {
      */
     public static String giornoSettimana(int giorno) {
         String risposta="lunedì,martedì,mercoledì,giovedì,venerdì,sabato,domenica";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String[] giornoSett=risposta.split(",");
+        int numeroGiorno= 7%giorno;   //dividendo per sette il resto darà il giorno della settimana(es. resto 3 =mercoledì)
+        return giornoSett[numeroGiorno];
     }
 
     /**
@@ -128,8 +152,12 @@ public class Main {
      * @return stringa di numeri separati da una virgola
      */
     public static String ordineDecrescente(int fine, int inizio) {
-        String risposta="100,99,98";
-        // TODO: SCRIVI QUI IL CODICE
+        String risposta="";
+        for(int i=fine; i>inizio;i--){
+            risposta=(risposta+","+i);
+
+        }
+        
         return risposta;
     }
 

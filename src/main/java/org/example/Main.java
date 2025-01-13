@@ -166,7 +166,7 @@ public class Main {
      * Una lumaca si trova alla base di un muro alto (float muro) metri.
      * Ogni giorno sale di (float sale) metri ma, durante la notte, scivola in giù di (float scende).
      * In quanti giorni la lumaca raggiungerà la cima del muro?
-     * es: giorniLumaca(5,4,10) => 2
+     * es: giorniLumaca(5,4,10) => 5
      * @param sale metri percorsi in salita di giorno dalla lumaca
      * @param scende metri persi in discesa durante la notte dalla lumaca
      * @param muro altezza del muro
@@ -174,7 +174,15 @@ public class Main {
      */
     public static int giorniLumaca(float sale, float scende, float muro) {
         int risposta=0;
-        // TODO: SCRIVI QUI IL CODICE
+        int spostamento=0;
+        while( spostamento<muro){
+            spostamento+=sale;
+            risposta++;
+            if(spostamento==numro){
+                return risposta;
+            }
+            spostamento-=scende;
+        }
         return risposta;
     }
 
@@ -193,8 +201,8 @@ public class Main {
      */
 
     public static String coordinatePunto(int x1, int y1, int x2, int y2,int x3,int y3) {
-        String risposta="1,1";
-        // TODO: SCRIVI QUI IL CODICE
+        String risposta="";
+        
         return risposta;
     }
 }

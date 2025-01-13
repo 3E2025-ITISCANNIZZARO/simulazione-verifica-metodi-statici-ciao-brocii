@@ -153,7 +153,7 @@ public class Main {
      */
     public static String ordineDecrescente(int fine, int inizio) {
         String risposta="";
-        for(int i=fine; i>inizio;i--){
+        for(int i=fine; i>inizio;i--){ 
             risposta=(risposta+","+i);
 
         }

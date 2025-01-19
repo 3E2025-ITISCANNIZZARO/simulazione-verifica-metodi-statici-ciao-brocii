@@ -5,16 +5,16 @@ package org.example;
  *  @author prof. Zanzottera Fabio
  *  @version 1.0-3di, 19/11/24
  */
-public class Main {
+public class Main {  
     /**
      * default constructor no usages
      */
     public Main() {};
 
-    static final String cognome=""; // assegnare alla variabile il proprio cognome
-    static final String nome=""; // assegnare alla variabile il proprio nome
-    static final String currentDate="19/11/24";
-    static final String classe="3DI";
+    static final String cognome="Biroli"; // assegnare alla variabile il proprio cognome
+    static final String nome="Lucia"; // assegnare alla variabile il proprio nome
+    static final String currentDate="13/01/25";
+    static final String classe="4EI";
 
     /**
      * Programma principale modificare solo dove indicato nei commenti
@@ -62,7 +62,7 @@ public class Main {
      */
     public static int somma(int a,int b) {
         int risposta=0;
-        // TODO: SCRIVI QUI IL CODICE
+        risposta=a+b;
         return risposta;
     }
 
@@ -75,8 +75,14 @@ public class Main {
      */
     public static String isMaggiorenne(int age) {
         String risposta="maggiorenne,minorenne";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String[] magg=risposta.split(",");
+         if(age>=18){
+            return magg[0];
+         }
+         else{
+            return magg[1];
+         }
+        
     }
 
     /**
@@ -87,7 +93,11 @@ public class Main {
      */
     public static boolean isVocale(char carattere) {
         boolean risposta=false;
-        // TODO: SCRIVI QUI IL CODICE
+        switch (carattere) {
+            case 'a','A','e','E','i','I','o','O','u','U':
+                risposta=true;
+                break;
+        }
         return risposta;
     }
 
@@ -101,8 +111,21 @@ public class Main {
      */
     public static String tipoTriangolo(float lato1, float lato2, float lato3) {
         String risposta="equilatero,isoscele,scaleno";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String[] r=risposta.split(",");
+        double diferenza=0.0001;
+        if(lato1-lato2<diferenza&&lato2-lato3<diferenza){
+            System.out.print("il triangolo è ");
+            return r[0];
+        }
+        else if(lato1-lato2<diferenza||lato2-lato3<diferenza||lato3-lato1<diferenza){
+            System.out.print("il triangolo è ");
+            return r[1];
+        }
+        else{
+            System.out.print("il triangolo è ");
+            return r[2];
+        }
+        
     }
 
     /**
@@ -114,8 +137,9 @@ public class Main {
      */
     public static String giornoSettimana(int giorno) {
         String risposta="lunedì,martedì,mercoledì,giovedì,venerdì,sabato,domenica";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String[] giornoSett=risposta.split(",");
+        int numeroGiorno= 7%giorno;   //dividendo per sette il resto darà il giorno della settimana(es. resto 3 =mercoledì)
+        return giornoSett[numeroGiorno-1];
     }
 
     /**
@@ -128,8 +152,12 @@ public class Main {
      * @return stringa di numeri separati da una virgola
      */
     public static String ordineDecrescente(int fine, int inizio) {
-        String risposta="100,99,98";
-        // TODO: SCRIVI QUI IL CODICE
+        String risposta="";
+        for(int i=fine; i>inizio;i--){  
+            risposta=(risposta+i+",");
+
+        }
+        
         return risposta;
     }
 
@@ -138,7 +166,7 @@ public class Main {
      * Una lumaca si trova alla base di un muro alto (float muro) metri.
      * Ogni giorno sale di (float sale) metri ma, durante la notte, scivola in giù di (float scende).
      * In quanti giorni la lumaca raggiungerà la cima del muro?
-     * es: giorniLumaca(5,4,10) => 2
+     * es: giorniLumaca(5,4,10) => 5
      * @param sale metri percorsi in salita di giorno dalla lumaca
      * @param scende metri persi in discesa durante la notte dalla lumaca
      * @param muro altezza del muro
@@ -146,7 +174,15 @@ public class Main {
      */
     public static int giorniLumaca(float sale, float scende, float muro) {
         int risposta=0;
-        // TODO: SCRIVI QUI IL CODICE
+        int spostamento=0;
+        while( spostamento<muro){
+            spostamento+=sale;
+            risposta++;
+            if(spostamento>=muro){
+                return risposta;
+            }
+            spostamento-=scende;
+        }
         return risposta;
     }
 
@@ -154,7 +190,7 @@ public class Main {
      * ESERCIZIO 8
      * In un diagramma cartesiano, dati i vertici P1 P2 e P3 di un rettangolo con i lati paralleli/perpendicolari agli assi
      * calcolare le coordinate del punto P4 e stamparlo come stringa separando l'ascissa e l'ordinata con una virgola
-     * es. P1(0,0), P2(0,1), P3(1,0) => coordinatePunto(0,0,0,1,1,0) => 1,1
+     * es. P1(0,0), P2(0,2), P3(1,0) => coordinatePunto(0,0,0,2,1,0) => 1,2
      * @param x1 ascissa P1
      * @param y1 ordinata P1
      * @param x2 ascissa P2
@@ -165,8 +201,33 @@ public class Main {
      */
 
     public static String coordinatePunto(int x1, int y1, int x2, int y2,int x3,int y3) {
-        String risposta="1,1";
-        // TODO: SCRIVI QUI IL CODICE
+        String risposta="";
+        if(x1!=x2&&x1!=x3);{
+            if(y1==y2){
+                risposta=(x1+","+y3);
+            }
+            else{
+                risposta=(x1+","+y2);
+            }
+        }
+        if(x2!=x1&&x2!=x3);{
+            if(y2==y1){
+                risposta=(x2+","+y1);
+            }
+            else{
+                risposta=(x2+","+y3);
+            }
+        }
+        if(x3!=x2&&x3!=x1);{
+            if(y3==y2){
+                risposta=(x3+","+y1);
+            }
+            else{
+                risposta=(x3+","+y2);
+            }
+        }
+        
+        
         return risposta;
     }
 }
